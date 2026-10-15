@@ -1,0 +1,52 @@
+{
+  "name": "@vic-octavian/api-football",
+  "version": "0.1.0",
+  "description": "Type-safe, rate-limit-aware client for API-Football v3 (api-sports.io). Works in Next.js, NestJS and any Node 18+ app.",
+  "author": "Victory Octavian",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vizzicute/api-football-package.git"
+  },
+  "keywords": [
+    "api-football"
+  ],
+  "bugs": {
+    "url": "https://github.com/Vizzicute/api-football-package/issues"
+  },
+  "homepage": "https://github.com/Vizzicute/api-football-package#readme"
+}
