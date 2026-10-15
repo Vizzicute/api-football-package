@@ -1,11 +1,11 @@
 ---
 name: api-football-client
-description: "Use when a Node.js, Next.js or NestJS task needs football data (livescores, fixtures, standings, predictions, odds, players, transfers) from API-Football v3 via the @vic/api-football package. Covers setup with API_FOOTBALL_KEY, typed method calls, caching, plan-aware rate limiting, daily quota protection, error handling, and the background-worker architecture. Triggers on api-football, api-sports, livescore, football fixtures, rate-limit or quota problems with API-Football."
+description: "Use when a Node.js, Next.js or NestJS task needs football data (livescores, fixtures, standings, predictions, odds, players, transfers) from API-Football v3 via the @vic-octavian/api-football package. Covers setup with API_FOOTBALL_KEY, typed method calls, caching, plan-aware rate limiting, daily quota protection, error handling, and the background-worker architecture. Triggers on api-football, api-sports, livescore, football fixtures, rate-limit or quota problems with API-Football."
 license: MIT
 compatibility: "Node.js 18+. Server-side only. Works in Next.js (App Router and Pages), NestJS and plain Node."
 ---
 
-# @vic/api-football
+# @vic-octavian/api-football
 
 Type-safe, rate-limit-aware client for API-Football v3 (`https://v3.football.api-sports.io`). It is an unofficial package.
 
@@ -21,7 +21,7 @@ Type-safe, rate-limit-aware client for API-Football v3 (`https://v3.football.api
 ## Install and setup
 
 ```bash
-npm install @vic/api-football
+npm install @vic-octavian/api-football
 ```
 
 ```env
@@ -29,9 +29,9 @@ API_FOOTBALL_KEY=your_key
 ```
 
 ```ts
-import { apiFootball } from "@vic/api-football"; // default instance, free-plan limits
+import { apiFootball } from "@vic-octavian/api-football"; // default instance, free-plan limits
 
-import { ApiFootball } from "@vic/api-football";
+import { ApiFootball } from "@vic-octavian/api-football";
 export const api = new ApiFootball({ plan: "pro", quotaReserve: 50 }); // custom config
 ```
 
@@ -112,7 +112,7 @@ catch (e) { if (e instanceof QuotaExceededError) { /* serve cache */ } else thro
 
 ```ts
 import "server-only";
-import { ApiFootball } from "@vic/api-football";
+import { ApiFootball } from "@vic-octavian/api-football";
 export const football = new ApiFootball({ plan: "pro" });
 ```
 
@@ -131,7 +131,7 @@ Inject `ApiFootball` into services. Run syncs with `@nestjs/schedule` `@Cron` jo
 
 ```
 Users -> your API -> Redis/DB (read only)
-Worker/cron -> @vic/api-football -> API-Football
+Worker/cron -> @vic-octavian/api-football -> API-Football
 ```
 
 - Live fixtures: every ~60s (one call returns all live matches).
